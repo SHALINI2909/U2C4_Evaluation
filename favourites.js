@@ -1,7 +1,7 @@
 // write js code here corresponding to favourites.html
 
 var favArr = JSON.parse(localStorage.getItem("favourites"))
-
+console.log(favArr)
 displayData(favArr);
 
 function displayData(data){
@@ -40,8 +40,9 @@ document.querySelector("tbody").append(tr)
 }
 
 function deleteItem(elem,index) {
+    console.log("items")
     favArr.splice(index,1);
-    localStorage.removeItem("favourites",JSON.stringify(favArr))
+    localStorage.setItem("favourites",JSON.stringify(favArr))
     window.location.reload();
 }
 

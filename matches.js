@@ -5,13 +5,14 @@ console.log(matchArr);
 
 displayData(matchArr)
 
-
+ document.querySelector("#filterVenue").addEventListener("change",handleFilter)
 
 function handleFilter(){
-    var selected = document.getElementById("filterVenue").Value;
+   // console.log("click")
+    var selected = document.getElementById("filterVenue").value;
     console.log(selected)
      var filteredList = matchArr.filter(function(elem){
-         return elem.filtervenue==selected
+         return elem.venue==selected;
     })
      console.log(filteredList)
      displayData(filteredList)
@@ -20,6 +21,7 @@ function handleFilter(){
 var favArr = JSON.parse(localStorage.getItem(favArr)) || []
 
 function displayData(data){
+    document.querySelector("tbody").innerHTML=null
     data.forEach(function(elem){
 
 var tr = document.createElement("tr")
